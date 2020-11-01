@@ -1,4 +1,3 @@
-# Sql-server-Api
 # Connect Python to SQL Server using pyodbc and flask
 
 # Pre-requirements:
