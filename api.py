@@ -23,14 +23,11 @@ print("connected!")
 ##flask
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
-
 app.secret_key = "my precious"
-
 ## routes to each webpage
 @app.route('/')
 def fe():
     return render_template('home.html')
-
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     if request.method=="POST":
@@ -45,7 +42,6 @@ def search():
                     Data3 =  "Batch : " + str(list(row)[i])
         return render_template('html.html', d1=Data1, d2 =Data2, d3=Data3)
     return render_template('input.html')
-
 @app.route('/updatedb', methods=['GET', 'POST'])
 def updatedb():
     if request.method=='POST':
@@ -55,7 +51,6 @@ def updatedb():
         cnxn.commit()
         return render_template('dbupdated.html')
     return render_template('insert.html')
-
 @app.route('/sql',methods=['GET','POST'])
 def sql():
     if request.method=='POST':
@@ -67,33 +62,5 @@ def sql():
         text_file.close()
         return render_template('sqlout.html')
     return render_template('sqlfill.html')
-
-# @app.route('/filter',method=('GET','POST'))
-# def filter():
-#     if request.method=='POST':
-
-
-
-        # if request.method=="POST":
-    #     a = "'" + str(request.form['username']) +"'"
-    #     print(a)
-    #     cursor.execute(a)
-    #     sql_query =pd.read_sql_query(a,cnxn)
-    #     print(sql_query)
-    #     return render_template('sqlout.html', d1= sql_query)
-    # return render_template('sql.html')
-    # if request.method=="POST":
-    #     cursor.execute('SELECT * FROM spjain.dbo.student_info WHERE CampusId=' + str(request.form['username']))
-    #     for row in cursor:
-    #         for i in range(0,3):
-    #             if i ==0:
-    #                 Data1 =  "Campus ID : " + str(list(row)[i])
-    #             elif i ==1:
-    #                 Data2 = "Full Name : " + str(list(row)[i])
-    #             elif i ==2:
-    #                 Data3 =  "Batch : " + str(list(row)[i])
-    #     return render_template('sqlout.html', d1=Data1)
-    # return render_template('sql.html')
-
 if __name__ == "__main__": 
     app.run()
