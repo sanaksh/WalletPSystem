@@ -1,4 +1,4 @@
-# Connect Python to SQL Server using pyodbc and flask
+# Connect Python to SQL Server using pyodbc and rendering data using Flask
 
 # Pre-requirements:
 Install python3 and pip3
