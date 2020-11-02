@@ -1,5 +1,6 @@
 # Connect Python to SQL Server using pyodbc and rendering data using Flask
-
+# Woking of the Project
+![alt text](https://github.com/devashishupadhyay/Sql-Server-Flask/blob/main/working.jpg?raw=true)
 # Pre-requirements:
 Install python3 and pip3
 (This project is tested on Python 3.8)
