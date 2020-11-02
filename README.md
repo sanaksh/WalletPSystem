@@ -27,9 +27,10 @@ For Deployment on linux visit https://docs.microsoft.com/en-us/sql/linux/quickst
 # Starting Flask Server:
 	python3 api.py
 	
-# Note:
+# Important Note:
 Pyodbc is python module which runs only on Windows operating system or Windows Datacenter server.
 This project is tested on Windows server 2019 and Windows 10.
 
 # Credits:
+Devashish Upadhyay
 https://thedevashish.in
