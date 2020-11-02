@@ -26,7 +26,7 @@ Install python3 and pip3
 
 ## Windows
 
-1. Install ODBC Driver 17 for SQL Server ([link](https://www.microsoft.com/en-us/download/details.aspx?id=56567))
+1. Install ODBC Driver 17 for SQL Server (https://www.microsoft.com/en-us/download/details.aspx?id=56567)
 2. Create virtual env with python 3.6: `virtualenv venv`
 3. Activate virtual env: `venv\Scripts\activate.bat`
 3. Install required libs: `pip install -r requirements.txt`
