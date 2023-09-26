@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div style = "text-align: center">
+	<h2>WALLET PAYMENT SYSTEM</h2>
+	{% if error %}
+		<p style="color: red">{{ error }}</p>
+	{% endif %}
+    
+	<form action="{{ url_for('login') }}" method="POST">
+		<label>SSN:</label>
+		<input type="SSN" name="SSN"><br>
+		<input type="submit" value="Login">
+	</form>
+    </div>
+</body>
+</html>
+

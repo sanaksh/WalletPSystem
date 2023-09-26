@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accounts Page</title>
+</head>
+<body action="{{ url_for('account') }}">
+  <h1>Account Information</h1>
+  <p>Name: {{ name }}</p>
+  <p>Account Balance: {{ balance }}</p>
+  <p>SSN: {{ ssn }}</p>
+
+ 
+  <!-- Button to open the send money form -->
+<button onclick="document.getElementById('send-money-form').style.display='block'">Send Money</button>
+
+<!-- The send money form (hidden by default) -->
+<div id="send-money-form" style="display:none;">
+  <form action="{{ url_for('sendmoney') }}" method="post">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email"><br><br>
+    <label for="amount">Amount:</label>
+    <input type="text" id="amount" name="amount"><br><br>
+    <label for="memo">Memo:</label>
+    <input type="text" id="memo" name="memo"><br><br>
+    <input type="submit" value="Send">
+    <button onclick="document.getElementById('send-money-form').style.display='none'">Cancel</button>
+  </form>
+</div>
+
+<script>
+  function toggleAccountNumberField() {
+    var accountType = document.getElementById("account-type");
+    var otherAccountDiv = document.getElementById("other-account-div");
+    var accountNumberField = document.getElementById("account-number");
+    if (accountType.value == "other") {
+      otherAccountDiv.style.display = "block";
+      accountNumberField.required = true;
+    } else {
+      otherAccountDiv.style.display = "none";
+      accountNumberField.required = false;
+    }
+  }
+</script>
+
+
+
+<!---------------------REQUEST------------------------------------->
+
+<button onclick="document.getElementById('req-money-form').style.display='block'">Request Money</button>
+<div id="req-money-form" style="display:none;">
+  <form action="{{ url_for('requestmoney') }}" method="POST">
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" name="amount"><br>
+
+      <div id="sections">
+        <div>
+          <label for="email">Email/Phone:</label>
+          <input type="text" name="email[]">
+
+          <label for="percent">Percentage:</label>
+          <input type="number" name="percent[]" min="0" max="100">
+        </div>
+      </div>
+
+      <label for="Memo">MEMO:</label>
+      <input type="text" id="Memo" name="Memo"><br>
+
+      <button type="button" onclick="addSection()">Add Email/Phone</button>
+      <button type="submit">Send Request</button>
+    </form>
+    </div>
+
+    <script>
+      function addSection() {
+        var section = document.createElement("div");
+        section.innerHTML = `
+          <label for="email">Email/Phone:</label>
+          <input type="text" name="email[]">
+
+          <label for="percent">Percentage:</label>
+          <input type="number" name="percent[]" min="0" max="100">
+        `;
+        document.getElementById("sections").appendChild(section);
+      }
+      function showForm() {
+        document.getElementById("moneyForm").style.display = "block";
+      }
+    </script>
+
+  <!-- Insert statement section here -->
+
+<button onclick="showStatements()">Statements</button>
+<div id="statement-form" style="display:none;">
+ 
+  <form action="{{ url_for('statements') }}" method="GET">
+    <!-- <form action="statements.html" method="GET"></form> -->
+    <label for="start_date">Start Date:</label>
+    <input type="date" id = "start_date" name="start_date" required>
+    <label for="end_date">End Date:</label>
+    <input type="date" id = "end_date" name="end_date" required>
+    <input type="submit" value="View Statements">
+  </form>
+</div>
+<script>
+  function showStatements() {
+    document.getElementById("statement-form").style.display = "block";
+  }
+  </script>
+  
+
+<!---------------------------Search Transactions ----------------------------->
+<button onclick="showTransactionOptions()">Transactions</button>
+<div id="transaction-options" style="display:none;">
+  <button onclick="showSentTransactions()">Sent</button>
+  <button onclick="showReceivedTransactions()">Received</button>
+</div>
+
+<div id="transaction-form" style="display:none;">
+  <form action="{{ url_for('search_transactions') }}" method="POST">
+    <input type="hidden" name="transaction_type" id="transaction-type">
+    <div class="form-group" id="start-date-group" style="display:none;">
+      <label for="start_date">Start Date:</label>
+      <input type="date" class="form-control" id="start_date" name="start_date">
+    </div>
+    <div class="form-group" id="end-date-group" style="display:none;">
+      <label for="end_date">End Date:</label>
+      <input type="date" class="form-control" id="end_date" name="end_date">
+    </div>
+    <div class="form-group" id="identifier-group" style="display:none;">
+      <label for="identifier">Email/Phone:</label>
+      <!-- <input type="text" class="form-control" id="identifier" name="identifier"> -->
+      <input type="text" class="form-control" id="identifier" name="identifier">
+    </div>
+    <div id="search-button-group" style="display:none;">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+</div>
+<script>
+  function showTransactionOptions() {
+    document.getElementById("transaction-options").style.display = "block";
+  }
+
+  function hideTransactionOptions() {
+    document.getElementById("transaction-options").style.display = "none";
+  }
+
+  function showSentTransactions() {
+    hideTransactionOptions();
+    document.getElementById("transaction-form").style.display = "block";
+    document.getElementById("start-date-group").style.display = "block";
+    document.getElementById("end-date-group").style.display = "block";
+    document.getElementById("identifier-group").style.display = "block";
+    document.getElementById("search-button-group").style.display = "block";
+    document.getElementById("start_date").setAttribute("required", "");
+    document.getElementById("end_date").setAttribute("required", "");
+    document.getElementById("transaction-type").value = "sent";
+  }
+
+  function showReceivedTransactions() {
+    hideTransactionOptions();
+    document.getElementById("transaction-form").style.display = "block";
+    document.getElementById("start-date-group").style.display = "block";
+    document.getElementById("end-date-group").style.display = "block";
+    document.getElementById("identifier-group").style.display = "block";
+    document.getElementById("search-button-group").style.display = "block";
+    document.getElementById("start_date").setAttribute("required", "");
+    document.getElementById("end_date").setAttribute("required", "");
+    document.getElementById("transaction-type").value = "received";
+  }
+</script>
+
+<form action="/modify">
+  <button type="submit">Modify</button>
+</form>
+  
+  <!-- Insert search transactions form here -->
+  
+  <form action="/signout">
+    <button type="submit">Sign Out</button>
+  </form>
+  <!-- Insert sign out button here -->
+</body>
+</html>

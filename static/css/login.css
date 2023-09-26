@@ -1,0 +1,39 @@
+body {
+    background-color: #f1f1f1; /* use any color of your choice */
+    background-image: url("background-image.jpg"); /* use any image of your choice */
+    background-repeat: no-repeat;
+    background-size: cover;
+    align
+  }
+
+  form {
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    background-color: white;
+  }
+
+  input[type=email], input[type=password] {
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 3px;
+    background-color: #f1f1f1; /* use any color of your choice */
+  }
+  
+  input[type=email]:focus, input[type=password]:focus {
+    background-color: #ddd; /* use any color of your choice */
+  }
+
+  input[type=submit] {
+    background-color: #4CAF50; /* use any color of your choice */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #3e8e41; /* use any color of your choice */
+  }

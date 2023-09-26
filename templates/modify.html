@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1>Modify Account Info</h1>
+  </head>
+  <body>
+    <p>Modify Emails</p>
+    <button onclick="showAddEmail()">Edit Email</button>
+    <button onclick="showRemoveEmail()">Remove Email</button>
+
+    <div id="add-email-form" style="display: none;">
+      <form action="{{ url_for('modifyemail') }}" method="POST" name="action" value="add">
+        <input type="hidden" name="action" value="add">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <button type="submit" onclick="addEmail()">Submit</button>
+      </form>
+    </div>
+
+    <div id="remove-email-form" style="display: none;">
+      <form action="{{ url_for('modifyemail') }}" method="POST" name="action" value="remove">
+        <input type="hidden" name="action" value="remove">
+        <label for="remove-email">Email:</label>
+        <input type="email" id="remove-email" name="remove-email">
+        <button type="submit" onclick="removeEmail()">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      function showAddEmail() {
+        document.getElementById("add-email-form").style.display = "block";
+        document.getElementById("remove-email-form").style.display = "none";
+      }
+
+      function showRemoveEmail() {
+        document.getElementById("add-email-form").style.display = "none";
+        document.getElementById("remove-email-form").style.display = "block";
+      }
+
+      function addEmail() {
+        email = document.getElementById("email").value;
+        document.getElementsByName("action")[0].value = "add";
+        
+      }
+
+      function removeEmail() {
+        email = document.getElementById("remove-email").value;
+        document.getElementsByName("action")[1].value = "remove";
+        
+      }
+    </script>
+    
+    <p>Modify Phone Number</p>
+
+    <button onclick="showAddPhone()">Edit Phone Number</button>
+    <button onclick="showRemovePhone()">Remove Phone Number</button>
+
+    <div id="add-phone-form" style="display: none;">
+      <form action="{{ url_for('modifyphone') }}" method="POST" name="action" value="add">
+        <input type="hidden" name="action" value="add">
+        <label for="phone">Phone Number:</label>
+        <input type="number" id="phone" name="phone">
+        <button type="submit" onclick="addPhone()">Submit</button>
+      </form>
+    </div>
+
+    <div id="remove-phone-form" style="display: none;">
+      <form action="{{ url_for('modifyphone') }}" method="POST" name="action" value="remove">
+        <input type="hidden" name="action" value="remove">
+        <label for="remove-phone">Phone Number:</label>
+        <input type="phone" id="remove-phone" name="remove-phone">
+        <button type="number" onclick="removePhone()">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      function showAddPhone() {
+        document.getElementById("add-phone-form").style.display = "block";
+        document.getElementById("remove-phone-form").style.display = "none";
+      }
+
+      function showRemovePhone() {
+        document.getElementById("add-phone-form").style.display = "none";
+        document.getElementById("remove-phone-form").style.display = "block";
+      }
+
+      function addEmail() {
+        email = document.getElementById("phone").value;
+        document.getElementsByName("phone")[0].value = "add";
+       
+      }
+
+      function removeEmail() {
+        email = document.getElementById("remove-phone").value;
+        document.getElementsByName("action")[1].value = "remove";
+        
+      }
+    </script>
+
+
+  </body>
+</html>

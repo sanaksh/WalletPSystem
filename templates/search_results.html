@@ -1,0 +1,26 @@
+<h1>Search Results</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Transaction ID</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Memo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for transaction in transactions %}
+        <tr>
+          {% if transaction.STID is not none %}
+            <td>{{ transaction.STID }}</td>
+            <td>{{ transaction.date_time }}</td>
+          {% else %}
+            <td>{{ transaction.RTID }}</td>
+            <td>{{ transaction.date_of_transaction }}</td>
+          {% endif %}
+          <td>{{ transaction.amount }}</td>
+          <td>{{ transaction.memo }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
