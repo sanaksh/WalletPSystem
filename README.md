@@ -5,8 +5,7 @@
 
 The aim of the project at this phase is to design a database system for the wallet payment network that has all the tables needed and able to select, view, and manipulate data as required, satisfying the conditions set at the beginning of the project. The database has tables with primary and foreign keys, designated based on the ER diagram and the relational schema designed and delivered in the previous phases of the project respectively. It is ensured that the basic functionalities such as sending and receiving money are promptly implemented with possibility of aggregating transactions. 
 
-The project back-end has been implemented with SQL Server Management Studio of Microsoft that has capabilities to work on MSSQL. The front-end UI design has been implemented with Python Flask framework. 
-
+The project back-end has been implemented with SQL Server Management Studio of Microsoft that has capabilities to work on MSSQL. The front-end UI design has been implemented with Python Flask framework.
 
 # Pre-requirements:
 Install python3 and pip3
