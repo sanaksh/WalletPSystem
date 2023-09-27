@@ -47,6 +47,3 @@ For Deployment on linux visit https://docs.microsoft.com/en-us/sql/linux/quickst
 # Starting Flask Server:
 	python3 api.py
 
-# Credits:
-Devashish Upadhyay
-https://thedevashish.in
