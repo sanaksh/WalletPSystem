@@ -1,6 +1,9 @@
-# Connect Python to SQL Server using pyodbc and rendering data into HTML using Flask
+# Wallet Payment System
+
 # Woking of the Project
-![alt text](https://github.com/devashishupadhyay/Sql-Server-Flask/blob/main/working.jpg?raw=true)
+
+The aim of the project at this phase is to design a database system for the wallet payment network that has all the tables needed and able to select, view, and manipulate data as required, satisfying the conditions set at the beginning of the project. The database has tables with primary and foreign keys, designated based on the ER diagram and the relational schema designed and delivered in the previous phases of the project respectively. It is ensured that the basic functionalities such as sending and receiving money are promptly implemented with possibility of aggregating transactions. 
+
 # Pre-requirements:
 Install python3 and pip3
 (This project is tested on Python 3.8)
